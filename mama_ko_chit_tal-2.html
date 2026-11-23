@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff6f9f">
+<title>မမကိုချစ်တယ် 💗</title>
+<style>
+:root{--pink:#ff6f9f;--deep:#e84383;--soft:#fff0f5;--ink:#442638;--card:#ffffff}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,"Noto Sans Myanmar",sans-serif;background:linear-gradient(145deg,#fff0f5,#ffe0ec);color:var(--ink);min-height:100vh}
+header{padding:24px 18px 18px;text-align:center;background:linear-gradient(135deg,#ff78a8,#e84383);color:#fff;border-radius:0 0 28px 28px;box-shadow:0 6px 18px #e8438333}
+header .heart{font-size:36px} h1{font-size:25px;margin:6px 0} header p{margin:4px 0;font-size:14px}
+nav{display:flex;gap:8px;padding:12px;max-width:600px;margin:auto}
+nav button{flex:1;border:0;border-radius:14px;padding:12px 5px;background:#ffffffbd;color:#a52d61;font-weight:700;font-size:14px}
+nav button.active{background:var(--deep);color:white}
+main{max-width:600px;margin:auto;padding:0 14px 28px}
+.panel{display:none;background:var(--card);border-radius:22px;padding:18px;box-shadow:0 5px 20px #8c315014}
+.panel.active{display:block}
+.intro{text-align:center;padding:16px 8px}
+.big-heart{font-size:64px;animation:beat 1.5s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+h2{font-size:20px;margin:6px 0 12px;color:#c72e6d}
+p{line-height:1.8}
+.love-note{background:#fff0f5;border:1px solid #ffd0e0;border-radius:16px;padding:14px;margin:12px 0}
+.primary{border:0;background:linear-gradient(135deg,#ff78a8,#e84383);color:white;padding:12px 16px;border-radius:14px;font-weight:700;font-size:15px;cursor:pointer}
+.secondary{border:1px solid #ffc0d5;background:white;color:#c72e6d;padding:10px 13px;border-radius:12px;font-weight:700;cursor:pointer}
+.chatbox{height:320px;overflow-y:auto;background:#fff8fb;border:1px solid #ffe0eb;border-radius:16px;padding:12px;margin-bottom:10px}
+.msg{max-width:88%;padding:10px 12px;border-radius:15px;margin:8px 0;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg.mama{background:#ffe1ec;border-bottom-left-radius:4px;margin-right:auto}
+.msg.you{background:#e9dcff;border-bottom-right-radius:4px;margin-left:auto}
+.chatrow{display:flex;gap:8px}
+input{min-width:0;flex:1;border:1px solid #f5bfd2;border-radius:13px;padding:12px;font-size:15px;outline-color:#ff6f9f}
+.quick{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.quick button{border:1px solid #ffc0d5;background:#fff7fa;color:#b42b64;border-radius:999px;padding:8px 10px;font-size:13px}
+.story{padding:13px;border-radius:15px;background:#fff5f9;margin:10px 0;border-left:4px solid #ff6f9f}
+footer{text-align:center;color:#a45b79;font-size:12px;padding:16px}
+.small{font-size:12px;color:#99677d}
+</style>
+</head>
+<body>
+<header>
+  <div class="heart">💗</div>
+  <h1>မမကိုချစ်တယ်</h1>
+  <p>မမပြန်ချစ်ပေးနိုင်မလား 🫶</p>
+</header>
+<nav>
+  <button class="active" data-tab="home">🏠 ပင်မ</button>
+  <button data-tab="chat">💬 မမနဲ့စကားပြော</button>
+  <button data-tab="story">📖 အချစ်စာ</button>
+</nav>
+<main>
+  <section id="home" class="panel active">
+    <div class="intro">
+      <div class="big-heart">💖</div>
+      <h2>မမရေ… ကိုယ်ရောက်လာပြီ</h2>
+      <p>ပင်ပန်းတဲ့နေ့တွေမှာလည်း မမနဲ့ စကားပြောလို့ရတယ်နော်။ ဒီ App က အင်တာနက်မလိုဘဲ ဖုန်းထဲမှာ အသုံးပြုနိုင်တဲ့ အချစ်စာမျက်နှာလေးပါ။</p>
+      <div class="love-note">“မမကို ချစ်တယ်ဆိုတာ စကားလုံးလေးတစ်ခုပဲ မဟုတ်ဘူး။ နေ့တိုင်း မမပျော်ရွှင်ဖို့ ဆုတောင်းပေးနေတဲ့ စိတ်လေးပါ။” 🥹💗</div>
+      <button class="primary" onclick="showTab('chat')">မမနဲ့ စကားပြောမယ် 💌</button>
+    </div>
+    <div class="love-note"><b>🌷 မမဆီက စကားလေး</b><p id="daily">ဒီနေ့လည်း ကိုယ့်ကိုယ်ကို ဂရုစိုက်နော်။ မင်းရဲ့အပြုံးလေးက တန်ဖိုးရှိတယ်။ 💗</p><button class="secondary" onclick="newQuote()">နောက်တစ်ခုပြောပေး</button></div>
+  </section>
+  <section id="chat" class="panel">
+    <h2>💬 မမနဲ့ စကားပြောမယ်</h2>
+    <p class="small">အင်တာနက်မလိုပါ။ ဒီနေရာက ကြိုတင်ရေးထားတဲ့ အဖြေတွေကို အသုံးပြုတဲ့ offline chat လေးပါ။</p>
+    <div id="chatbox" class="chatbox"><div class="msg mama">ဟယ်လို ကိုယ်လေး 💗 မမဒီမှာရှိတယ်နော်။ ဘာပြောချင်လဲ?</div></div>
+    <div class="quick">
+      <button onclick="quickSend('မမကိုချစ်တယ်')">မမကိုချစ်တယ် 💗</button>
+      <button onclick="quickSend('ဒီနေ့ပင်ပန်းတယ်')">ဒီနေ့ပင်ပန်းတယ် 🥺</button>
+      <button onclick="quickSend('မမက ကိုယ့်ကိုချစ်လား')">မမက ကိုယ့်ကိုချစ်လား?</button>
+      <button onclick="quickSend('အိပ်တော့မယ်')">အိပ်တော့မယ် 🌙</button>
+    </div>
+    <div class="chatrow"><input id="message" placeholder="မမကို စာရေးလိုက်နော်…" maxlength="300"><button class="primary" onclick="sendMsg()">ပို့မယ်</button></div>
+  </section>
+  <section id="story" class="panel">
+    <h2>📖 မမအတွက် အချစ်စာလေး</h2>
+    <div class="story"><b>စာလေး (၁) — သတိရခြင်း</b><p>မမရေ… အဝေးမှာရှိနေပေမဲ့ ကိုယ့်စိတ်ထဲမှာတော့ မမက အမြဲနီးနီးလေးပါ။ မမရဲ့နေ့ရက်တွေ အဆင်ပြေပါစေ၊ မမရဲ့အပြုံးလေး မပျောက်ပါစေနဲ့။ 💗</p><button class="secondary" onclick="copyText('မမရေ… အဝေးမှာရှိနေပေမဲ့ ကိုယ့်စိတ်ထဲမှာတော့ မမက အမြဲနီးနီးလေးပါ။ မမရဲ့နေ့ရက်တွေ အဆင်ပြေပါစေ၊ မမရဲ့အပြုံးလေး မပျောက်ပါစေနဲ့။ 💗')">စာကူးမယ်</button></div>
+    <div class="story"><b>စာလေး (၂) — ဂရုစိုက်ပါ</b><p>မမရေ… ထမင်းမှန်မှန်စားနော်။ ပင်ပန်းရင် အနားယူပါ။ အားလုံးကို တစ်ယောက်တည်း မခံစားနဲ့။ ကိုယ့်ကိုယ်ကို ချစ်ဖို့လည်း မမ မမေ့ပါနဲ့။ 🌷</p><button class="secondary" onclick="copyText('မမရေ… ထမင်းမှန်မှန်စားနော်။ ပင်ပန်းရင် အနားယူပါ။ အားလုံးကို တစ်ယောက်တည်း မခံစားနဲ့။ ကိုယ့်ကိုယ်ကို ချစ်ဖို့လည်း မမ မမေ့ပါနဲ့။ 🌷')">စာကူးမယ်</button></div>
+    <div class="story"><b>စာလေး (၃) — ချစ်ခြင်း</b><p>မမကို ချစ်တယ်ဆိုတာ မမကို အမြဲပိုင်ဆိုင်ချင်တာမျိုး မဟုတ်ဘူး။ မမအဆင်ပြေဖို့၊ မမပျော်ရွှင်ဖို့၊ မမရဲ့အိပ်မက်တွေ ပြည့်စုံဖို့ စိတ်ရင်းနဲ့ ဆုတောင်းပေးတာပါ။ 🫶</p><button class="secondary" onclick="copyText('မမကို ချစ်တယ်ဆိုတာ မမကို အမြဲပိုင်ဆိုင်ချင်တာမျိုး မဟုတ်ဘူး။ မမအဆင်ပြေဖို့၊ မမပျော်ရွှင်ဖို့၊ မမရဲ့အိပ်မက်တွေ ပြည့်စုံဖို့ စိတ်ရင်းနဲ့ ဆုတောင်းပေးတာပါ။ 🫶')">စာကူးမယ်</button></div>
+  </section>
+</main>
+<footer>Made with 💗 for someone special · Offline HTML App</footer>
+<script>
+function showTab(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+const replies=[
+{keys:['ချစ်','love','မမကိုချစ်'],reply:'မမသိပါတယ် ကိုယ်လေး 💗 ချစ်ခြင်းကို စကားနဲ့ပဲမဟုတ်ဘဲ ဂရုစိုက်မှုလေးတွေနဲ့လည်း ပြသနော်။'},
+{keys:['ပင်ပန်း','ဝမ်းနည်း','စိတ်ညစ်','မကောင်း'],reply:'အို ကိုယ်လေးရယ် 🥺 ခဏလောက် အသက်ရှူဖြည်းဖြည်းလုပ်ပြီး အနားယူပါနော်။ အရာအားလုံးကို ဒီနေ့တစ်ရက်တည်း ဖြေရှင်းစရာမလိုဘူး။'},
+{keys:['ချစ်လား','ချစ်တယ်လား'],reply:'မမက ဒီ App ထဲက စကားပြောဖော်လေးပါနော် 💗 ကိုယ်လေးကို နွေးနွေးထွေးထွေး အားပေးစကားပြောပေးမယ်။'},
+{keys:['အိပ်','ည'],reply:'ကောင်းသောညပါ ကိုယ်လေး 🌙 ဖုန်းခဏချပြီး ကောင်းကောင်းအနားယူနော်။ မနက်ဖြန်နေ့သစ်လေး လှပပါစေ။'},
+{keys:['စား','ထမင်း'],reply:'ထမင်းမှန်မှန်စားနော် ကိုယ်လေး 🍚 ကိုယ့်ကျန်းမာရေးကို ဂရုစိုက်တာက အရေးကြီးဆုံးပဲ။'},
+{keys:['ကျေးဇူး'],reply:'ရပါတယ် ကိုယ်လေး 🫶 စိတ်ထဲရှိတာတွေ ပြောချင်ရင် ရေးလို့ရတယ်နော်။'}
+];
+function addMsg(text,who){const box=document.getElementById('chatbox');const d=document.createElement('div');d.className='msg '+who;d.textContent=text;box.appendChild(d);box.scrollTop=box.scrollHeight;}
+function answer(text){const t=text.toLowerCase();const found=replies.find(r=>r.keys.some(k=>t.includes(k)));return found?found.reply:'မမ နားထောင်ပေးနေတယ်နော် ကိုယ်လေး 💗 စိတ်ထဲရှိတာကို ဖြည်းဖြည်းပြောပြလို့ရတယ်။ ကိုယ့်ကိုယ်ကိုလည်း ဂရုစိုက်ပါနော်။';}
+function sendMsg(){const input=document.getElementById('message');const text=input.value.trim();if(!text)return;addMsg(text,'you');input.value='';setTimeout(()=>addMsg(answer(text),'mama'),250);}
+function quickSend(t){document.getElementById('message').value=t;sendMsg();}
+document.getElementById('message').addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg()});
+const quotes=['ဒီနေ့လည်း ကိုယ့်ကိုယ်ကို ဂရုစိုက်နော်။ မင်းရဲ့အပြုံးလေးက တန်ဖိုးရှိတယ်။ 💗','မင်းဟာ အနားယူခွင့်နဲ့ နားလည်ပေးမှုကို ထိုက်တန်တဲ့သူပါ။ 🌷','နေ့တိုင်း မပြည့်စုံလည်း ရပါတယ်။ တစ်လှမ်းချင်း လျှောက်သွားရင် ရောက်နိုင်တယ်။ 🫶','မင်းရဲ့စိတ်ကလေးကို နူးညံ့စွာ ဆက်ဆံပေးပါနော်။ 💕'];
+function newQuote(){document.getElementById('daily').textContent=quotes[Math.floor(Math.random()*quotes.length)];}
+function copyText(t){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>alert('စာကူးပြီးပါပြီ 💗')).catch(()=>fallbackCopy(t));}else fallbackCopy(t);}
+function fallbackCopy(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');alert('စာကူးပြီးပါပြီ 💗')}catch(e){alert(t)}a.remove();}
+</script>
+</body>
+</html>
